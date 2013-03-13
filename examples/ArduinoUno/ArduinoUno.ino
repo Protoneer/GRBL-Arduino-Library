@@ -1,7 +1,9 @@
 /*
   Thanks for supporting Open-Hard/Soft-ware and thanks
   for all of the contributors to this project.
-  http://blog.protoneer.co.nz/grbl-arduino-library/
+
+  For extra info on GRBL please have a look at my blog : 
+	http://blog.protoneer.co.nz/tag/grbl/
 
   Grbl is free software: you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
