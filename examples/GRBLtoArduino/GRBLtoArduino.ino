@@ -17,7 +17,14 @@
   http://www.gnu.org/licenses/
 */
 
-#define SETTINGS_ARDUINO_UNO
+/*
+	Supported hardware:
+		Arduino Duemilanove
+		Arduino Uno
+		Arduino Mega 2560 (Limited Testing)
+
+*/
+
 #include <grblmain.h>
 
 void setup(){
