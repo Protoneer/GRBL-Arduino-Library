@@ -28,6 +28,7 @@
 #include "motion_control.h"
 #include "protocol.h"
 
+
 uint8_t rx_buffer[RX_BUFFER_SIZE];
 uint8_t rx_buffer_head = 0;
 uint8_t rx_buffer_tail = 0;
@@ -48,6 +49,7 @@ volatile uint8_t tx_buffer_tail = 0;
     return (RX_BUFFER_SIZE - (rx_buffer_head-rx_buffer_tail));
   }
 #endif
+
 
 void serial_init()
 {
@@ -72,6 +74,10 @@ void serial_init()
   // defaults to 8-bit, no parity, 1 stop bit
 }
 
+
+
+
+
 void serial_write(uint8_t data) {
   // Calculate next head
   uint8_t next_head = tx_buffer_head + 1;
@@ -91,7 +97,7 @@ void serial_write(uint8_t data) {
 }
 
 // Data Register Empty Interrupt handler
-#ifdef __AVR_ATmega644P__
+#if defined(__AVR_ATmega644P__) || defined(__AVR_ATmega2560__)
 ISR(USART0_UDRE_vect)
 #else
 ISR(USART_UDRE_vect)
@@ -124,6 +130,8 @@ ISR(USART_UDRE_vect)
   if (tail == tx_buffer_head) { UCSR0B &= ~(1 << UDRIE0); }
 }
 
+
+
 uint8_t serial_read()
 {
   if (rx_buffer_head == rx_buffer_tail) {
@@ -144,7 +152,8 @@ uint8_t serial_read()
   }
 }
 
-#ifdef __AVR_ATmega644P__
+
+#if defined(__AVR_ATmega644P__) || defined(__AVR_ATmega2560__)
 ISR(USART0_RX_vect)
 #else
 ISR(USART_RX_vect)
@@ -177,6 +186,7 @@ ISR(USART_RX_vect)
         #endif
         
       }
+	  
   }
 }
 
