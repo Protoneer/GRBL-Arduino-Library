@@ -1,6 +1,8 @@
 GRBL-Arduino-Library
 ====================
 
+#### THIS LIBRARY IS KEPT FOR REFERENCE. THE OFFICIAL LIBRARY IS HOSTED AT : https://github.com/gnea/grbl  ####
+
 Arduino Library for GRBL - This way you can use the Arduino IDE to upload GRBL to your Arduino Board.
 
 
